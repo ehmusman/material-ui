@@ -1,4 +1,4 @@
-import { Grid, makeStyles, TextField } from '@material-ui/core'
+import { FormControl, FormControlLabel, FormLabel, Grid, makeStyles, Radio, RadioGroup, TextField } from '@material-ui/core'
 import React, { useState } from 'react'
 
 
@@ -34,18 +34,10 @@ function EmployeeForm() {
             [e.target.name]: e.target.value
         })
     }
-    const handleOnSubmit = (e) => {
-        e.preventDefault();
-        console.log(values);
-        setValues({
-            ...values,
-            fullName: '',
-            email: ''
-        })
-    }
+
 
     return (
-        <form onSubmit={handleOnSubmit}>
+        <form>
             <Grid container className={classes.root}>
                 <Grid item xs={6}>
                     <TextField
@@ -64,10 +56,21 @@ function EmployeeForm() {
                     />
                 </Grid>
                 <Grid item xs={6}>
+                    <FormControl>
+                        <FormLabel>Gender</FormLabel>
+                        <RadioGroup row
+                            name='gender'
+                            value={values.gender}
+                            onChange={handleOnChange}
+                        >
+                            <FormControlLabel value='male' control={<Radio />} label='Male' />
+                            <FormControlLabel value='female' control={<Radio />} label='Female' />
+                            <FormControlLabel value='other' control={<Radio />} label='Other' />
+                        </RadioGroup>
+                    </FormControl>
                 </Grid>
 
             </Grid>
-            <input type="submit" value="submit" />
         </form>
     )
 }
