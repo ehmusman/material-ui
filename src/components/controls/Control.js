@@ -1,9 +1,9 @@
 import InputField from './InputField';
-import RadioGroupComponent from './RadioGroupComponent';
+import RadioGroup from './RadioGroup';
 
 const Control = {
     InputField,
-    RadioGroupComponent
+    RadioGroup
 }
 
 export default Control;

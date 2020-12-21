@@ -60,7 +60,7 @@ function EmployeeForm() {
                     />
                 </Grid>
                 <Grid item xs={6}>
-                    <Control.RadioGroupComponent
+                    <Control.RadioGroup
                         title="Gender"
                         name="gender"
                         value={values.gender}
