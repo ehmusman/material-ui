@@ -1,0 +1,53 @@
+ this tutorial have following sections.
+ >> Introduction and basics
+ >> Form Design and validation
+ >> Table Paging Sorting and Filtering
+ >> Model Popup and dialog
+ >> confirm dialog
+ >> ETC..
+
+----------------------------------------------------------------------
+ Introduction;
+
+official documentation is at material.io . the behaviour of each component is documented briefly here.
+
+material ui is used to create a well looking ui/ux. this is high recomended if you are not a good web designer.
+most of the android devices are using material design. flutter slso use the matrial design components by default. google products like gmail, youtube also used meterial design components. more and more developers are looking for it. the react version of material design is MATERIAL-UI. similarly angular version is angular material.
+
+
+----------------------------------------------------
+>> makeStyles method is used to convert css of js in plain css.
+
+>> navigation bar is made by using AppBar component in material ui.
+>> Toolbar component is used inside the AppBar component. to  make navigation bar on a webpage.
+
+>> Grid component is used to manage and organize the components inside the Toolbar component to make a navigation bar. this grid is just like a bootstrap grid it also has 12 columns.
+    syntax is
+        <Grid container>
+            <Grid item md={6} sm={12} style={{ border: '1px solid #fff' }}>
+
+            </Grid>
+
+            <Grid item md={6} sm={12} style={{ border: '1px solid #000' }}>
+
+            </Grid>
+        </Grid>
+
+>> InputBase component is used to add input like to search anything.
+>> IconButton is used to add icons in app.
+>> to add a notification icon with active number of notificaitions we use iconName with Badge component.
+
+
+--------------------------------------------------------------------------
+
+Customize MUI theme and components.
+there are two approaches to customize the MUI components
+1- with ClassName attribute
+2- with class attribute.
+
+using ClassName attribute.
+
+custome color can also be changed.
+
+------------------------------------------------------------
+MUI form design.
