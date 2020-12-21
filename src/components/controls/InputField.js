@@ -12,7 +12,7 @@ function InputField({
 
     return (
         <TextField
-            variant={varient}
+            variant='outlined'
             label={label}
             name={name}
             value={value}
