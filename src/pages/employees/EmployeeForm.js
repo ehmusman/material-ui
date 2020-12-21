@@ -9,7 +9,7 @@ const initialValues = {
     mobile: '',
     city: '',
     gender: 'male', // corrsponding to this property we have a group of radioButtons
-    department: '', // corresponding to this property we have a dropdown list
+    departmentId: '', // corresponding to this property we have a dropdown list
     hireDate: new Date(),
     isPermanent: false // corresponding to this property we have a check box to toggle the value.
 };
@@ -17,6 +17,16 @@ const radioGroupData = [
     { id: 'male', title: 'Male' },
     { id: 'female', title: 'Female' },
     { id: 'other', title: 'Other' }
+]
+const departmentData = [
+    { id: 1, title: 'Department1' },
+    { id: 2, title: 'Department2' },
+    { id: 3, title: 'Department3' },
+    { id: 4, title: 'Department4' },
+    { id: 5, title: 'Department5' },
+    { id: 6, title: 'Department6' },
+    { id: 7, title: 'Department7' },
+    { id: 8, title: 'Department8' }
 ]
 
 const useStyle = makeStyles(theme => ({
@@ -66,6 +76,13 @@ function EmployeeForm() {
                         value={values.gender}
                         onChange={handleOnChange}
                         items={radioGroupData}
+                    />
+                    <Control.Select
+                        name="departmentId"
+                        label='Department'
+                        value={values.departmentId}
+                        onChange={handleOnChange}
+                        options={departmentData}
                     />
                 </Grid>
 
