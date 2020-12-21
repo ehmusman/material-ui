@@ -84,6 +84,15 @@ function EmployeeForm() {
                         onChange={handleOnChange}
                         options={departmentData}
                     />
+                    <Control.CheckBox
+                        name="isPermanent"
+                        value={values.isPermanent}
+                        label='Permanent Employee'
+                        onChange={e => setValues({
+                            ...values,
+                            [e.target.name]: !values.isPermanent
+                        })}
+                    />
                 </Grid>
 
             </Grid>
