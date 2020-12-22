@@ -64,6 +64,19 @@ function EmployeeForm() {
             isPermanent: false // corresponding to this property we have a check box to toggle the value.
         })
     }
+    const handleResetForm = (e) => {
+        e.preventDefault();
+        setValues({
+            fullName: '',
+            email: '',
+            mobile: '',
+            city: '',
+            gender: 'male', // corrsponding to this property we have a group of radioButtons
+            departmentId: '', // corresponding to this property we have a dropdown list
+            hireDate: new Date(),
+            isPermanent: false // corresponding to this property we have a check box to toggle the value.
+        })
+    }
 
     return (
         <form autoComplete='off' onSubmit={handleOnSubmit}>
@@ -129,6 +142,12 @@ function EmployeeForm() {
                         <Control.Button
                             text='Submit'
                             type="submit"
+                        />
+                        <Control.Button
+                            text='Reset'
+                            type="reset"
+                            color='default'
+                            onClick={handleResetForm}
                         />
                     </div>
                 </Grid>
