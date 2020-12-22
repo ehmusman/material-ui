@@ -10,7 +10,7 @@ const initialValues = {
     city: '',
     gender: 'male', // corrsponding to this property we have a group of radioButtons
     departmentId: '', // corresponding to this property we have a dropdown list
-    hireDate: new Date(),
+    hireDate: new Date().toDateString(),
     isPermanent: false // corresponding to this property we have a check box to toggle the value.
 };
 const radioGroupData = [
@@ -43,11 +43,11 @@ function EmployeeForm() {
     const classes = useStyle();
     const [values, setValues] = useState(initialValues)
     const handleOnChange = (e) => {
-        e.preventDefault();
         setValues({
             ...values,
             [e.target.name]: e.target.value
         })
+        return false;
     }
 
 
@@ -83,6 +83,12 @@ function EmployeeForm() {
                         value={values.departmentId}
                         onChange={handleOnChange}
                         options={departmentData}
+                    />
+                    <Control.DatePicker
+                        name='hireDate'
+                        label='Hire Date'
+                        value={values.hireDate}
+                        onChange={handleOnChange}
                     />
                     <Control.CheckBox
                         name="isPermanent"
