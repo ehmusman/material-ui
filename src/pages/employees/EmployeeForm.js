@@ -10,7 +10,7 @@ const initialValues = {
     city: '',
     gender: 'male', // corrsponding to this property we have a group of radioButtons
     departmentId: '', // corresponding to this property we have a dropdown list
-    hireDate: new Date().toDateString(),
+    hireDate: new Date(),
     isPermanent: false // corresponding to this property we have a check box to toggle the value.
 };
 const radioGroupData = [
@@ -51,8 +51,18 @@ function EmployeeForm() {
     }
 
     const handleOnSubmit = (e) => {
-
-        e.preventDefault()
+        e.preventDefault();
+        console.log(values)
+        setValues({
+            fullName: '',
+            email: '',
+            mobile: '',
+            city: '',
+            gender: 'male', // corrsponding to this property we have a group of radioButtons
+            departmentId: '', // corresponding to this property we have a dropdown list
+            hireDate: new Date(),
+            isPermanent: false // corresponding to this property we have a check box to toggle the value.
+        })
     }
 
     return (
