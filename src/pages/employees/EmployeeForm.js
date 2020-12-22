@@ -50,9 +50,13 @@ function EmployeeForm() {
         return false;
     }
 
+    const handleOnSubmit = (e) => {
+
+        e.preventDefault()
+    }
 
     return (
-        <form autoComplete='off'>
+        <form autoComplete='off' onSubmit={handleOnSubmit}>
             <Grid container className={classes.root}>
                 <Grid item xs={6}>
                     <Control.InputField
@@ -111,6 +115,12 @@ function EmployeeForm() {
                             [e.target.name]: !values.isPermanent
                         })}
                     />
+                    <div>
+                        <Control.Button
+                            text='Submit'
+                            type="submit"
+                        />
+                    </div>
                 </Grid>
 
             </Grid>
