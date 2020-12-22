@@ -68,6 +68,18 @@ function EmployeeForm() {
                         value={values.email}
                         onChange={handleOnChange}
                     />
+                    <Control.InputField
+                        label="Mobile"
+                        name='mobile'
+                        value={values.mobile}
+                        onChange={handleOnChange}
+                    />
+                    <Control.InputField
+                        label="City"
+                        name='city'
+                        value={values.city}
+                        onChange={handleOnChange}
+                    />
                 </Grid>
                 <Grid item xs={6}>
                     <Control.RadioGroup
