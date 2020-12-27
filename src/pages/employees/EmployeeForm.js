@@ -28,23 +28,40 @@ function EmployeeForm() {
 
     const classes = useStyle();
     const [values, setValues] = useState(initialValues)
-    const [error, setError] = useState({})
+    const [error, setError] = useState(null)
+
     const handleOnChange = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
         })
+        let errorValues = {};
+        errorValues.fullName = values.fullName;
+        errorValues.email = values.email;
+        errorValues.mobile = values.mobile;
+        errorValues.city = values.city;
+        errorValues.departmentId = values.departmentId;
+        validation(errorValues)
         return false;
     }
 
     const handleOnSubmit = (e) => {
-        e.preventDefault();
+        validation()
         console.log(values)
+        console.log(error)
         setValues(initialValues)
+        e.preventDefault();
+
     }
     const handleResetForm = (e) => {
         e.preventDefault();
         setValues(initialValues)
+    }
+    const validation = (errorValues) => {
+
+        setError({
+            ...errorValues
+        })
     }
 
     return (
@@ -120,7 +137,6 @@ function EmployeeForm() {
                         />
                     </div>
                 </Grid>
-
             </Grid>
         </form>
     )
