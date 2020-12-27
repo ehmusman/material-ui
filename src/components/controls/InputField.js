@@ -17,6 +17,9 @@ function InputField({
             name={name}
             value={value}
             onChange={onChange}
+            error
+            helperText='this field is required'
+
         />
 
     )
