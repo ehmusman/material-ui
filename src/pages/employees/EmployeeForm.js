@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Grid, makeStyles } from '@material-ui/core'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Control from '../../components/controls/Control'
 
 
@@ -48,12 +48,12 @@ function EmployeeForm() {
     }
 
     const handleOnSubmit = (e) => {
-        validation();
-        setValues(initialValues)
-        setError(errorInitialValues)
 
-        if (!validation()) {
-            alert('Please Fill All the Fields')
+        if (validation()) {
+            validation();
+            setValues(initialValues)
+            setError(errorInitialValues)
+
         }
 
         e.preventDefault();

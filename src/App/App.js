@@ -3,6 +3,7 @@ import { createMuiTheme, makeStyles, ThemeProvider } from "@material-ui/core";
 import Header from "../components/Header";
 import SideMenu from "../components/SideMenu";
 import Employees from '../pages/employees/Employees';
+import FormState from '../context/EmployeeFormState';
 
 
 const theme = createMuiTheme({
@@ -41,14 +42,16 @@ function App() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme} >
-      <SideMenu />
-      <div className={classes.appMain}>
-        <Header />
-        <Employees />
+    <FormState>
+      <ThemeProvider theme={theme} >
+        <SideMenu />
+        <div className={classes.appMain}>
+          <Header />
+          <Employees />
 
-      </div>
-    </ThemeProvider>
+        </div>
+      </ThemeProvider>
+    </FormState>
 
 
   );
