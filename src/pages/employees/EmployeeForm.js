@@ -28,8 +28,7 @@ const errorInitialValues = {
     fullName: '',
     email: '',
     mobile: '',
-    city: '',
-    departmentId: ''
+    city: ''
 }
 
 function EmployeeForm() {
@@ -70,7 +69,6 @@ function EmployeeForm() {
         errorValues.email = (/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/).test(values.email) ? '' : 'Email is Not Valid';
         errorValues.mobile = values.mobile.length > 9 ? "" : 'Minimum 10 Numbers are Required';
         errorValues.city = values.city.length >= 2 ? '' : 'This Field is Required';
-        errorValues.departmentId = values.departmentId.length > 0 ? '' : 'This Field is Required';
 
         setError({
             ...errorValues
@@ -126,7 +124,6 @@ function EmployeeForm() {
                         value={values.departmentId}
                         onChange={handleOnChange}
                         options={Control.departmentData}
-                        error={error.departmentId}
                     />
                     <Control.DatePicker
                         name='hireDate'

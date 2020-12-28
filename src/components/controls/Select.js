@@ -1,4 +1,4 @@
-import { FormControl, FormHelperText, InputLabel, MenuItem, Select as MuiSelect } from '@material-ui/core'
+import { FormControl, InputLabel, MenuItem, Select as MuiSelect } from '@material-ui/core'
 import React from 'react'
 
 function Select({
@@ -12,7 +12,6 @@ function Select({
     return (
         <FormControl
             variant='outlined'
-            {...(error && { error: true })}
         >
             <InputLabel>{label}</InputLabel>
             <MuiSelect
@@ -25,7 +24,6 @@ function Select({
                     <MenuItem value={option.id} key={option.id}>{option.title}</MenuItem>
                 ))}
             </MuiSelect>
-            {error && <FormHelperText >{error}</FormHelperText>}
 
         </FormControl>
     )
