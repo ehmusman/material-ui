@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { Grid, makeStyles } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Control from '../../components/controls/Control'
 
 
@@ -35,21 +36,22 @@ function EmployeeForm() {
             ...values,
             [e.target.name]: e.target.value
         })
-        let errorValues = {};
-        errorValues.fullName = values.fullName;
-        errorValues.email = values.email;
-        errorValues.mobile = values.mobile;
-        errorValues.city = values.city;
-        errorValues.departmentId = values.departmentId;
-        validation(errorValues)
+        validation();
+
         return false;
     }
 
     const handleOnSubmit = (e) => {
-        validation()
+        validation();
         console.log(values)
         console.log(error)
+
+        if (validation()) {
+            alert('qwertyu')
+        }
+
         setValues(initialValues)
+        setError(null)
         e.preventDefault();
 
     }
@@ -57,15 +59,22 @@ function EmployeeForm() {
         e.preventDefault();
         setValues(initialValues)
     }
-    const validation = (errorValues) => {
+    const validation = () => {
+        let errorValues = {};
+        errorValues.fullName = values.fullName ? "" : "This Field is Required";
+        errorValues.email = (/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/).test(values.email) ? '' : 'Email is Not Valid';
+        errorValues.mobile = values.mobile.length > 9 ? "" : 'Minimum 10 Numbers are Required';
+        errorValues.city = values.city ? '' : 'This Field is Required';
 
         setError({
             ...errorValues
         })
+        return Object.values(errorValues).every(x => x === '')
+
     }
 
     return (
-        <form autoComplete='off' onSubmit={handleOnSubmit}>
+        <form autoComplete="Off" onSubmit={handleOnSubmit}>
             <Grid container className={classes.root}>
                 <Grid item xs={6}>
                     <Control.InputField
