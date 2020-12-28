@@ -24,12 +24,18 @@ const useStyle = makeStyles(theme => ({
         }
     }
 }));
+const errorInitialValues = {
+    fullName: '',
+    email: '',
+    mobile: '',
+    city: ''
+}
 
 function EmployeeForm() {
 
     const classes = useStyle();
     const [values, setValues] = useState(initialValues)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(errorInitialValues)
 
     const handleOnChange = (e) => {
         setValues({
@@ -43,15 +49,13 @@ function EmployeeForm() {
 
     const handleOnSubmit = (e) => {
         validation();
-        console.log(values)
-        console.log(error)
+        setValues(initialValues)
+        setError(errorInitialValues)
 
-        if (validation()) {
-            alert('qwertyu')
+        if (!validation()) {
+            alert('Please Fill All the Fields')
         }
 
-        setValues(initialValues)
-        setError(null)
         e.preventDefault();
 
     }
@@ -64,7 +68,7 @@ function EmployeeForm() {
         errorValues.fullName = values.fullName ? "" : "This Field is Required";
         errorValues.email = (/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/).test(values.email) ? '' : 'Email is Not Valid';
         errorValues.mobile = values.mobile.length > 9 ? "" : 'Minimum 10 Numbers are Required';
-        errorValues.city = values.city ? '' : 'This Field is Required';
+        errorValues.city = values.city.length >= 2 ? '' : 'This Field is Required';
 
         setError({
             ...errorValues
@@ -74,7 +78,7 @@ function EmployeeForm() {
     }
 
     return (
-        <form autoComplete="Off" onSubmit={handleOnSubmit}>
+        <form autoComplete="off" onSubmit={handleOnSubmit}>
             <Grid container className={classes.root}>
                 <Grid item xs={6}>
                     <Control.InputField
@@ -82,25 +86,28 @@ function EmployeeForm() {
                         name='fullName'
                         value={values.fullName}
                         onChange={handleOnChange}
+                        error={error.fullName}
                     />
-
                     <Control.InputField
                         label="Email"
                         name='email'
                         value={values.email}
                         onChange={handleOnChange}
+                        error={error.email}
                     />
                     <Control.InputField
                         label="Mobile"
                         name='mobile'
                         value={values.mobile}
                         onChange={handleOnChange}
+                        error={error.mobile}
                     />
                     <Control.InputField
                         label="City"
                         name='city'
                         value={values.city}
                         onChange={handleOnChange}
+                        error={error.city}
                     />
                 </Grid>
                 <Grid item xs={6}>

@@ -6,19 +6,19 @@ function InputField({
     label,
     name,
     value,
-    onChange
+    onChange,
+    error = null
 }) {
-
 
     return (
         <TextField
-            variant='outlined'
+            variant={'outlined' || varient}
             label={label}
             name={name}
             value={value}
             onChange={onChange}
-            error
-            helperText='this field is required'
+            {...(error && { error: true, helperText: error })}
+
 
         />
 
