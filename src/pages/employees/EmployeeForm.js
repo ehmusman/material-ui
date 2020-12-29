@@ -31,7 +31,7 @@ const errorInitialValues = {
     city: ''
 }
 
-function EmployeeForm() {
+function EmployeeForm({ handleClose }) {
 
     const classes = useStyle();
     const [values, setValues] = useState(initialValues)
@@ -53,6 +53,7 @@ function EmployeeForm() {
             validation();
             setValues(initialValues)
             setError(errorInitialValues)
+            handleClose('Close Popup')
 
         }
 
