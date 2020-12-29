@@ -6,12 +6,20 @@ import EmployeeFormContext from '../../context/employeeFormContext'
 
 export default function UseTable(props) {
     const { fullName, email, mobile, city, id } = props.value;
-    const { deleteEmployee } = useContext(EmployeeFormContext)
+    const { deleteEmployee, editEmployee } = useContext(EmployeeFormContext)
 
     const removeEmployee = () => {
         deleteEmployee({
             type: 'DELETE_EMPLOYEE',
             payload: id
+        })
+    }
+    const edittingEmployee = () => {
+        editEmployee({
+            type: 'EDIT_EMPLOYEE',
+            payload: {
+                fullName, email, mobile, city
+            }
         })
     }
 
@@ -28,7 +36,9 @@ export default function UseTable(props) {
                 >
                     <DeleteIcon fontSize="large" />
                 </IconButton>
-                <IconButton color='primary'>
+                <IconButton color='primary'
+                    onClick={edittingEmployee}
+                >
                     <EditIcon fontSize="large" />
                 </IconButton>
             </TableCell>

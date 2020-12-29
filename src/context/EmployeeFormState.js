@@ -36,12 +36,16 @@ const FormState = (props) => {
             payload: action.payload
         })
     }
+    const editEmployee = (action) => {
+
+    }
 
     return <EmployeeFormContext.Provider
         value={{
             initialValues: state.initialValues,
             addEmployee,
-            deleteEmployee
+            deleteEmployee,
+            editEmployee
         }}>
         {props.children}
     </EmployeeFormContext.Provider>
