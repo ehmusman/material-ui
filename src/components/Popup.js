@@ -3,10 +3,10 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, IconButton, makeStyles } from '@material-ui/core';
 import Control from './controls/Control';
 import EmployeeForm from '../pages/employees/EmployeeForm';
-
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyle = makeStyles(theme => ({
     root: {
@@ -37,6 +37,9 @@ export default function Popup() {
         if (val === 'Close Popup')
             setOpen(false);
     };
+    const handleInClose = () => {
+        setOpen(false);
+    };
 
     return (
         <div>
@@ -54,7 +57,20 @@ export default function Popup() {
                 </Grid>
             </Grid>
             <Dialog open={open} onClose={handleClose} maxWidth='md' classes={{ paper: classes1.dialogueWrapper }}>
-                <DialogTitle id="form-dialog-title">Enter New Employee</DialogTitle>
+                <Grid container>
+                    <Grid item xs={8}>
+                        <DialogTitle id="form-dialog-title">Enter New Employee
+                        </DialogTitle>
+                    </Grid>
+                    <Grid item xs={4}>
+                        <IconButton size="medium" edge='end'
+                            onClick={handleInClose}
+                        >
+                            <CloseIcon fontSize="large" style={{ color: 'red' }}
+                            />
+                        </IconButton>
+                    </Grid>
+                </Grid>
                 <DialogContent dividers>
                     <DialogContentText>
                         Fill the following fields to enter new employee
@@ -63,7 +79,6 @@ export default function Popup() {
                         handleClose={handleClose}
                     />
                 </DialogContent>
-
             </Dialog>
         </div>
     );
