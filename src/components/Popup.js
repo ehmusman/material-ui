@@ -27,21 +27,22 @@ const useStyle1 = makeStyles(theme => ({
 export default function Popup() {
     const classes = useStyle()
     const classes1 = useStyle1()
-    const { editEmployee } = useContext(EmployeeFormContext)
-    console.log(editEmployee)
+    const { setPopupTrue, setPopupFalse, popup } = useContext(EmployeeFormContext)
 
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
+    const SetPopupTrue = () => {
+        setPopupTrue({
+            type: 'POPUP_TRUE'
+        })
+    }
+    const SetPopupFalse = () => {
+        setPopupFalse({
+            type: 'POPUP_FALSE'
+        })
+    }
     const handleClose = (val) => {
-        if (val === 'Close Popup')
-            setOpen(false);
-    };
-    const handleInClose = () => {
-        setOpen(false);
+        if (val === 'Close Popup') {
+            SetPopupFalse()
+        }
     };
 
     return (
@@ -55,11 +56,11 @@ export default function Popup() {
                 <Grid item xs={4}>
                     <Control.Button
                         text='Add Employee'
-                        onClick={handleClickOpen}
+                        onClick={SetPopupTrue}
                     />
                 </Grid>
             </Grid>
-            <Dialog open={open} onClose={handleClose} maxWidth='md' classes={{ paper: classes1.dialogueWrapper }}>
+            <Dialog open={popup} onClose={handleClose} maxWidth='md' classes={{ paper: classes1.dialogueWrapper }}>
                 <Grid container>
                     <Grid item xs={8}>
                         <DialogTitle id="form-dialog-title">Enter New Employee
@@ -67,7 +68,7 @@ export default function Popup() {
                     </Grid>
                     <Grid item xs={4}>
                         <IconButton size="medium" edge='end'
-                            onClick={handleInClose}
+                            onClick={SetPopupFalse}
                         >
                             <CloseIcon fontSize="large" style={{ color: 'red' }}
 

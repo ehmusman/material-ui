@@ -19,7 +19,8 @@ const FormState = (props) => {
                 id: 4, fullName: 'Usman', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
             }
 
-        ]
+        ],
+        popup: false
     }
 
     const [state, dispatch] = useReducer(EmployeeFormReducer, initialState)
@@ -36,6 +37,16 @@ const FormState = (props) => {
             payload: action.payload
         })
     }
+    const setPopupTrue = (action) => {
+        dispatch({
+            type: action.type
+        })
+    }
+    const setPopupFalse = (action) => {
+        dispatch({
+            type: action.type
+        })
+    }
     const editEmployee = (action) => {
 
     }
@@ -43,9 +54,12 @@ const FormState = (props) => {
     return <EmployeeFormContext.Provider
         value={{
             initialValues: state.initialValues,
+            popup: state.popup,
             addEmployee,
             deleteEmployee,
-            editEmployee
+            editEmployee,
+            setPopupTrue,
+            setPopupFalse
         }}>
         {props.children}
     </EmployeeFormContext.Provider>

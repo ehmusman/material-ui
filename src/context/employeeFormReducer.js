@@ -11,6 +11,16 @@ const EmployeeFormReducer = (state, action) => {
                 ...state,
                 initialValues: state.initialValues.filter(employee => employee.id !== action.payload)
             }
+        case 'POPUP_TRUE':
+            return {
+                ...state,
+                popup: true
+            }
+        case 'POPUP_FALSE':
+            return {
+                ...state,
+                popup: false
+            }
         default:
             return state
     }
