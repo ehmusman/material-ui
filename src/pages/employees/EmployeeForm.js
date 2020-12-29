@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { Grid, makeStyles } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import EmployeeFormContext from '../../context/employeeFormContext'
 import Control from '../../components/controls/Control'
-
+import { v1 as uuid } from 'uuid'
 
 const initialValues = {
     id: 0,
@@ -34,6 +35,7 @@ const errorInitialValues = {
 function EmployeeForm({ handleClose }) {
 
     const classes = useStyle();
+    const { addEmployee } = useContext(EmployeeFormContext)
     const [values, setValues] = useState(initialValues)
     const [error, setError] = useState(errorInitialValues)
 
@@ -51,6 +53,16 @@ function EmployeeForm({ handleClose }) {
 
         if (validation()) {
             validation();
+            addEmployee({
+                type: 'ADD_EMPLOYEE',
+                payload: {
+                    id: uuid(),
+                    fullName: values.fullName,
+                    email: values.email,
+                    mobile: values.mobile,
+                    city: values.city
+                }
+            })
             setValues(initialValues)
             setError(errorInitialValues)
             handleClose('Close Popup')

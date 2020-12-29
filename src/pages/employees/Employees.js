@@ -1,7 +1,6 @@
 import { PeopleOutlineTwoTone } from '@material-ui/icons'
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
-// import EmployeeForm from './EmployeeForm'
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core';
 import Table from '../../components/table/Table';
@@ -25,7 +24,6 @@ function Employees() {
             />
 
             <Paper className={classes.pageContent}>
-                {/* <EmployeeForm /> */}
                 <Popup />
                 <Table />
             </Paper>
