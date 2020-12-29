@@ -20,7 +20,8 @@ const FormState = (props) => {
             }
 
         ],
-        popup: false
+        popup: false,
+        editValues: []
     }
 
     const [state, dispatch] = useReducer(EmployeeFormReducer, initialState)
@@ -48,7 +49,10 @@ const FormState = (props) => {
         })
     }
     const editEmployee = (action) => {
-
+        dispatch({
+            type: action.type,
+            payload: action.payload
+        })
     }
 
     return <EmployeeFormContext.Provider

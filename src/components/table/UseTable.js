@@ -18,7 +18,7 @@ export default function UseTable(props) {
         editEmployee({
             type: 'EDIT_EMPLOYEE',
             payload: {
-                fullName, email, mobile, city
+                id, fullName, email, mobile, city
             }
         })
     }
