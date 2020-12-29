@@ -66,7 +66,7 @@ export default function Popup() {
                         <DialogTitle id="form-dialog-title">Enter New Employee
                         </DialogTitle>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={4} align='right'>
                         <IconButton size="medium" edge='end'
                             onClick={SetPopupFalse}
                         >
