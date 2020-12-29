@@ -6,6 +6,11 @@ const EmployeeFormReducer = (state, action) => {
                 ...state,
                 initialValues: [...state.initialValues, action.payload]
             }
+        case "DELETE_EMPLOYEE":
+            return {
+                ...state,
+                initialValues: [...state.initialValues.filter(employee => employee !== action.payload)]
+            }
         default:
             return state
     }

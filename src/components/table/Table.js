@@ -34,6 +34,7 @@ export default function Table() {
                             <TableCell align="right">Email Address</TableCell>
                             <TableCell align="right">Mobile Number</TableCell>
                             <TableCell align="right">City</TableCell>
+                            <TableCell align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
