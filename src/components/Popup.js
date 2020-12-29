@@ -67,6 +67,7 @@ export default function Popup() {
                             onClick={handleInClose}
                         >
                             <CloseIcon fontSize="large" style={{ color: 'red' }}
+
                             />
                         </IconButton>
                     </Grid>

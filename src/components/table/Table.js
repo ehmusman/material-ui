@@ -33,7 +33,7 @@ export default function Table() {
                             <TableCell>Employee Name</TableCell>
                             <TableCell align="right">Email Address</TableCell>
                             <TableCell align="right">Mobile Number</TableCell>
-                            <TableCell align="right">Department</TableCell>
+                            <TableCell align="right">City</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
