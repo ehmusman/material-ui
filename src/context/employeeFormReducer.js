@@ -25,8 +25,12 @@ const EmployeeFormReducer = (state, action) => {
             return {
                 ...state,
                 initialValues: state.initialValues.map(employee => employee.id === action.payload.id ? (employee = action.payload) : employee)
+            };
+        case 'SEARCH_EMPLOYEE':
+            return {
+                ...state,
+                initialValues: state.initialValues.filter(employee => employee.fullName.toLowerCase().includes(action.payload))
             }
-
         case 'POPUP_TRUE':
             return {
                 ...state,

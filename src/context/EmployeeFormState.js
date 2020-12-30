@@ -5,7 +5,33 @@ import EmployeeFormReducer from './employeeFormReducer'
 
 const FormState = (props) => {
     const initialState = {
-        initialValues: [],
+        initialValues: [
+            {
+                id: 1, fullName: 'Usman', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 2, fullName: 'Ehsan', email: 'ehsan@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 3, fullName: 'ehsan', email: 'ehsan@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 4, fullName: 'Usman', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 5, fullName: 'rashid', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 6, fullName: 'hamza', email: 'ehsan@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 7, fullName: 'nawaz', email: 'ehsan@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            },
+            {
+                id: 8, fullName: 'Umer', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
+            }
+
+        ],
         popup: false,
         editPopup: false,
         editValues: null
@@ -62,6 +88,13 @@ const FormState = (props) => {
             payload: action.payload
         })
     }
+    const searchEmployee = (action) => {
+        // console.log(action.payload)
+        dispatch({
+            type: action.type,
+            payload: action.payload
+        })
+    }
 
     return <EmployeeFormContext.Provider
         value={{
@@ -74,6 +107,7 @@ const FormState = (props) => {
             editEmployee,
             clearEditValues,
             updateEmployee,
+            searchEmployee,
             setPopupTrue,
             setPopupFalse,
             setEditPopupTrue,

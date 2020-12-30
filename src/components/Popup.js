@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import EmployeeFormContext from '../context/employeeFormContext'
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -27,7 +27,8 @@ const useStyle1 = makeStyles(theme => ({
 export default function Popup() {
     const classes = useStyle()
     const classes1 = useStyle1()
-    const { setPopupTrue, setPopupFalse, popup } = useContext(EmployeeFormContext)
+    const { setPopupTrue, setPopupFalse, popup, searchEmployee } = useContext(EmployeeFormContext)
+    const [search, setSearch] = useState('')
 
     const SetPopupTrue = () => {
         setPopupTrue({
@@ -44,12 +45,23 @@ export default function Popup() {
             SetPopupFalse()
         }
     };
-
+    const handleSearchEmployee = (e) => {
+        setSearch(e.target.value)
+        if (e.target.value !== '') {
+            searchEmployee({
+                type: 'SEARCH_EMPLOYEE',
+                payload: search
+            })
+        }
+    }
     return (
         <div>
             <Grid container className={classes.root}>
                 <Grid item xs={8}>
                     <Control.InputField
+                        value={search}
+                        name='search'
+                        onChange={handleSearchEmployee}
                         label="Search Here"
                     />
                 </Grid>

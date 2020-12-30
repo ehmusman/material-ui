@@ -48,7 +48,6 @@ function App() {
         <div className={classes.appMain}>
           <Header />
           <Employees />
-
         </div>
       </ThemeProvider>
     </FormState>
