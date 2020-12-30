@@ -18,8 +18,6 @@ function InputField({
             value={value}
             onChange={onChange}
             {...(error && { error: true, helperText: error })}
-
-
         />
 
     )

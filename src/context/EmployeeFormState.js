@@ -88,13 +88,6 @@ const FormState = (props) => {
             payload: action.payload
         })
     }
-    const searchEmployee = (action) => {
-        // console.log(action.payload)
-        dispatch({
-            type: action.type,
-            payload: action.payload
-        })
-    }
 
     return <EmployeeFormContext.Provider
         value={{
@@ -107,7 +100,6 @@ const FormState = (props) => {
             editEmployee,
             clearEditValues,
             updateEmployee,
-            searchEmployee,
             setPopupTrue,
             setPopupFalse,
             setEditPopupTrue,
