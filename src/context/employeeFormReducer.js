@@ -29,12 +29,12 @@ const EmployeeFormReducer = (state, action) => {
         case 'EDIT_POPUP_TRUE':
             return {
                 ...state,
-                popup: true
+                editPopup: true
             }
         case 'EDIT_POPUP_FALSE':
             return {
                 ...state,
-                popup: false
+                editPopup: false
             }
         default:
             return state
