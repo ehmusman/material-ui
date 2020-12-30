@@ -48,7 +48,23 @@ const FormState = (props) => {
             type: action.type
         })
     }
+    const setEditPopupTrue = (action) => {
+        dispatch({
+            type: action.type
+        })
+    }
+    const setEditPopupFalse = (action) => {
+        dispatch({
+            type: action.type
+        })
+    }
     const editEmployee = (action) => {
+        dispatch({
+            type: action.type,
+            payload: action.payload
+        })
+    }
+    const updateEmployee = (action) => {
         dispatch({
             type: action.type,
             payload: action.payload
@@ -62,8 +78,11 @@ const FormState = (props) => {
             addEmployee,
             deleteEmployee,
             editEmployee,
+            updateEmployee,
             setPopupTrue,
-            setPopupFalse
+            setPopupFalse,
+            setEditPopupTrue,
+            setEditPopupFalse
         }}>
         {props.children}
     </EmployeeFormContext.Provider>
