@@ -5,23 +5,10 @@ import EmployeeFormReducer from './employeeFormReducer'
 
 const FormState = (props) => {
     const initialState = {
-        initialValues: [
-            {
-                id: 1, fullName: 'Usman', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
-            },
-            {
-                id: 2, fullName: 'Ehsan', email: 'ehsan@gmail.com', mobile: '2345676545678', city: 'faisalabad'
-            },
-            {
-                id: 3, fullName: 'ehsan', email: 'ehsan@gmail.com', mobile: '2345676545678', city: 'faisalabad'
-            },
-            {
-                id: 4, fullName: 'Usman', email: 'usman@gmail.com', mobile: '2345676545678', city: 'faisalabad'
-            }
-
-        ],
+        initialValues: [],
         popup: false,
-        editValues: []
+        editPopup: false,
+        editValues: null
     }
 
     const [state, dispatch] = useReducer(EmployeeFormReducer, initialState)
@@ -64,6 +51,11 @@ const FormState = (props) => {
             payload: action.payload
         })
     }
+    const clearEditValues = (action) => {
+        dispatch({
+            type: action.type
+        })
+    }
     const updateEmployee = (action) => {
         dispatch({
             type: action.type,
@@ -75,9 +67,12 @@ const FormState = (props) => {
         value={{
             initialValues: state.initialValues,
             popup: state.popup,
+            editPopup: state.editPopup,
+            editValues: state.editValues,
             addEmployee,
             deleteEmployee,
             editEmployee,
+            clearEditValues,
             updateEmployee,
             setPopupTrue,
             setPopupFalse,

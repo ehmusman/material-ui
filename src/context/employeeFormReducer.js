@@ -11,11 +11,22 @@ const EmployeeFormReducer = (state, action) => {
                 ...state,
                 initialValues: state.initialValues.filter(employee => employee.id !== action.payload)
             };
+        case 'CLEAR_EDIT_EMPLOYEE':
+            return {
+                ...state,
+                editValues: null
+            }
         case "EDIT_EMPLOYEE":
             return {
                 ...state,
                 editValues: action.payload
             };
+        case 'UPDATE_EMPLOYEE':
+            return {
+                ...state,
+                initialValues: state.initialValues.map(employee => employee.id === action.payload.id ? (employee = action.payload) : employee)
+            }
+
         case 'POPUP_TRUE':
             return {
                 ...state,

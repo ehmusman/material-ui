@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core';
 import Table from '../../components/table/Table';
 import Popup from '../../components/Popup';
+import EditPopup from '../../components/EditPopup';
 
 
 const useStyle = makeStyles(theme => ({
@@ -25,6 +26,7 @@ function Employees() {
 
             <Paper className={classes.pageContent}>
                 <Popup />
+                <EditPopup />
                 <Table />
             </Paper>
         </>
