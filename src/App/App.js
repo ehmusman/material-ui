@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import SideMenu from "../components/SideMenu";
 import Employees from '../pages/employees/Employees';
 import FormState from '../context/EmployeeFormState';
-import Test from '../context/Test';
 
 
 const theme = createMuiTheme({
@@ -49,7 +48,6 @@ function App() {
         <div className={classes.appMain}>
           <Header />
           <Employees />
-          <Test />
         </div>
       </ThemeProvider>
     </FormState>
