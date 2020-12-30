@@ -18,7 +18,7 @@ const useStyle1 = makeStyles(theme => ({
 }))
 export default function EditPopup() {
     const classes1 = useStyle1()
-    const { setEditPopupFalse, editPopup, clearEditValues, editValues } = useContext(EmployeeFormContext)
+    const { setEditPopupFalse, editPopup, clearEditValues } = useContext(EmployeeFormContext)
 
     const SetEditPopupFalse = () => {
         setEditPopupFalse({
