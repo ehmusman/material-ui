@@ -6,7 +6,7 @@ import EmployeeFormContext from '../../context/employeeFormContext'
 
 export default function UseTable(props) {
     const { fullName, email, mobile, city, id } = props.value;
-    const { deleteEmployee, editEmployee, setPopupTrue } = useContext(EmployeeFormContext)
+    const { deleteEmployee, editEmployee } = useContext(EmployeeFormContext)
 
     const removeEmployee = () => {
         deleteEmployee({
@@ -20,9 +20,6 @@ export default function UseTable(props) {
             payload: {
                 id, fullName, email, mobile, city
             }
-        })
-        setPopupTrue({
-            type: 'POPUP_TRUE'
         })
     }
 
